@@ -1,211 +1,101 @@
-<html lang="ja" class="scroll-smooth"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yoko Melichar | Service Design &amp; Strategy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<style>
-/* Typography overrides */
-.font-serif { font-family: 'Playfair Display', serif; }
-.font-sans { font-family: 'Noto Sans JP', sans-serif; }
-.font-serif-jp { font-family: 'Noto Serif JP', serif; }
-/* Japanese Text Readability */
-.jp-body {
-font-family: 'Noto Sans JP', sans-serif;
-font-weight: 300; /* Light */
-line-height: 2.0; /* Requested 2.0 */
-letter-spacing: 0.05em;
-}
-/* Text Outline Style */
-.text-outline {
--webkit-text-stroke: 1px rgba(231, 229, 228, 0.4);
-color: transparent;
-}
-/* Image interaction */
-.image-zoom-container { overflow: hidden; }
-.image-zoom-img { transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease; }
-.group:hover .image-zoom-img { transform: scale(1.05); }
-/* Animations */
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(20px); }
-to { opacity: 1; transform: translateY(0); }
-}
-.fade-in-up { animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-@keyframes floatText {
-0%, 100% { transform: rotate(-90deg) translateX(0); }
-50% { transform: rotate(-90deg) translateX(-15px); }
-}
-.animate-float-text { animation: floatText 14s ease-in-out infinite; }
-@media (max-width: 1024px) {
-.animate-float-text {
-animation: none;
-transform: none !important;
-writing-mode: vertical-rl;
-}
-}
-
-/* モバイルメニュー用の追加スタイル */
-#mobile-menu-content.hidden { display: none; }
-#mobile-menu-content.flex { display: flex; }
-</style>
-<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">.font-newsreader { font-family: 'Newsreader', serif !important; }</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">.font-oswald { font-family: 'Oswald', sans-serif !important; }</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }</style><link id="all-fonts-link-font-cormorant" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-cormorant">.font-cormorant { font-family: 'Cormorant Garamond', serif !important; }</style></head>
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoko Melichar | Service Design & Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+    <style>
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Noto Sans JP', sans-serif; }
+        .font-serif-jp { font-family: 'Noto Serif JP', serif; }
+        .jp-body { font-family: 'Noto Sans JP', sans-serif; font-weight: 300; line-height: 2.0; letter-spacing: 0.05em; }
+        .text-outline { -webkit-text-stroke: 1px rgba(231, 229, 228, 0.4); color: transparent; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { animation: fadeUp 1s ease forwards; }
+        @keyframes floatText { 0%, 100% { transform: rotate(-90deg) translateX(0); } 50% { transform: rotate(-90deg) translateX(-15px); } }
+        .animate-float-text { animation: floatText 14s ease-in-out infinite; }
+        @media (max-width: 1024px) { .animate-float-text { animation: none; writing-mode: vertical-rl; } }
+    </style>
+</head>
 
 <body class="bg-white">
-<div data-us-project="yWZ2Tbe094Fsjgy9NRnD" class="absolute w-full h-full left-0 top-0 -z-10"></div>
-<script type="text/javascript">
-    !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
-</script>
-
-<nav class="fixed top-0 left-0 w-full z-[100] bg-white/95 backdrop-blur-sm border-b border-black/5 px-6 py-4 md:px-12 flex justify-between items-center transition-all duration-300">
-    <div class="flex items-center gap-4">
-        <a href="#" class="flex flex-col md:flex-row md:items-baseline md:gap-3 group">
-            <span class="text-xl tracking-tight font-serif leading-none text-black group-hover:opacity-60 transition-opacity">
-                Yoko Melichar <span class="text-sm font-sans-jp ml-1 font-light text-stone-500">| メリカー庸子</span>
-            </span>
-            <span class="text-[9px] uppercase font-light tracking-[0.15em] font-sans text-stone-400 mt-1 md:mt-0">
-                Service Design Consultant
-            </span>
-        </a>
-    </div>
-    
-    <div class="hidden md:flex gap-x-8 items-center">
-        <a href="#process" class="text-[10px] uppercase tracking-[0.2em] font-serif text-black/60 hover:text-black transition-colors">Process</a>
-        <a href="#selected-works" class="text-[10px] uppercase tracking-[0.2em] font-serif text-black/60 hover:text-black transition-colors">Works</a>
-        <a href="#Philosophy" class="text-[10px] uppercase hover:text-black transition-colors text-black/60 tracking-[0.2em] font-serif">Philosophy</a>
-        <a href="#contact" class="text-[10px] uppercase hover:text-black transition-colors hover:bg-black hover:text-white transition-all text-black/60 tracking-[0.2em] font-serif border-black/20 border rounded-full pt-2 pr-4 pb-2 pl-4">Contact</a>
-    </div>
-
-    <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center text-black">
-        <iconify-icon icon="solar:hamburger-menu-linear" width="24" height="24"></iconify-icon>
-    </button>
-
-    <div id="mobile-menu-content" class="hidden absolute top-full left-0 w-full bg-white border-b border-black/5 flex-col p-6 gap-6 md:hidden">
-        <a href="#process" class="text-[11px] uppercase tracking-[0.2em] font-serif text-black/60">Process</a>
-        <a href="#selected-works" class="text-[11px] uppercase tracking-[0.2em] font-serif text-black/60">Works</a>
-        <a href="#Philosophy" class="text-[11px] uppercase tracking-[0.2em] font-serif text-black/60">Philosophy</a>
-        <a href="#contact" class="text-[11px] uppercase tracking-[0.2em] font-serif text-black/60">Contact</a>
-    </div>
-</nav>
-
-<header class="min-h-screen flex md:px-12 lg:px-24 overflow-hidden bg-[#0a0a0a] w-full pt-32 pr-6 pb-24 pl-6 relative items-center">
-    <div class="absolute inset-0 z-0 pointer-events-none">
-        <div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] blur-[120px] rounded-full bg-gray-800/20"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] blur-[100px] rounded-full bg-gray-700/10"></div>
-    </div>
-
-    <div class="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center h-full">
-        <div class="lg:col-span-6 flex flex-col justify-center fade-in-up order-2 lg:order-1 relative z-20 text-white">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl leading-[1.4] font-light tracking-wide font-serif-jp mb-12 text-white/90">
-                混沌を構造化し、<br>
-                組織のOSを<br class="hidden lg:block">再設計する。
-            </h1>
-            <div class="w-full h-[0.5px] mb-12 max-w-sm bg-white/20"></div>
-            <p class="jp-body text-sm text-gray-300 text-justify opacity-80 max-w-lg mb-12">Design for Complexity.<br> 複雑なプロジェクトの変数を紐解き、自走する組織のアーキテクチャを実装する。 混沌を構造へ。変革を日常へ。</p>
-            <a href="#selected-works" class="group relative inline-flex items-center gap-6 px-0 py-2 transition-colors duration-300 w-max text-white hover:text-gray-300">
-                <span class="relative z-10 text-[11px] tracking-[0.2em] uppercase font-serif border-b pb-1 group-hover:border-white transition-colors duration-300 border-white/30">View Case Studies</span>
-                <span class="font-light text-xl relative top-[-1px] group-hover:translate-x-2 transition-transform duration-300">⟶</span>
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-white/95 backdrop-blur-sm border-b border-black/5 px-6 py-4 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <a href="#" class="flex flex-col md:flex-row md:items-baseline md:gap-3 group">
+                <span class="text-xl tracking-tight font-serif text-black">Yoko Melichar <span class="text-sm font-sans-jp text-stone-500">| メリカー庸子</span></span>
             </a>
         </div>
-
-        <div class="lg:col-span-6 order-1 lg:order-2 fade-in-up delay-200 lg:h-[80vh] flex lg:border-none h-[50vh] border-white/5 border-l relative items-center justify-center">
-            <div id="particles-js" class="absolute inset-0 -z-10"></div>
-            <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
-                <span class="text-[13vh] lg:text-[18vh] font-serif font-light text-outline whitespace-nowrap lg:rotate-[-90deg] animate-float-text opacity-40 select-none tracking-tight">
-                    YOKO MELICHAR
-                </span>
-            </div>
-            <div class="z-10 flex flex-col gap-6 relative items-center">
-                <span class="text-[10px] uppercase font-medium text-white tracking-[0.3em] font-sans bg-[#0a0a0a]/50 border-white/10 border pt-2 pr-4 pb-2 pl-4 backdrop-blur-sm">
-                    Design Governance
-                </span>
-            </div>
-        </div>
-    </div>
-</header>
-
-<section class="lg:py-40 bg-center bg-cover pt-32 pb-32 relative" style="background-image: url('https://images.unsplash.com/photo-1509114397022-ed747cca3f65?q=80&amp;w=2670&amp;auto=format&amp;fit=crop')" id="process">
-    <div class="max-w-5xl mr-auto ml-auto pr-6 pl-6 relative z-10">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 border-b-[0.5px] pb-8 border-white/20">
-            <h2 class="font-serif text-4xl lg:text-5xl tracking-tight text-white">The Blueprint</h2>
-            <p class="text-[10px] tracking-[0.2em] uppercase mt-6 md:mt-0 font-serif text-white/60">Transformation Roadmap</p>
+        
+        <div class="hidden md:flex gap-8 items-center">
+            <a href="#process" class="text-[10px] uppercase tracking-widest text-black/60 hover:text-black">Process</a>
+            <a href="#selected-works" class="text-[10px] uppercase tracking-widest text-black/60 hover:text-black">Works</a>
+            <a href="#contact" class="text-[10px] uppercase border border-black/20 rounded-full px-4 py-2 hover:bg-black hover:text-white transition-all">Contact</a>
         </div>
 
-        <div class="relative space-y-12">
-            <div class="absolute left-[2.8rem] md:left-[3.15rem] top-8 bottom-8 w-0.5 bg-white/40 hidden md:block"></div>
+        <button id="mobile-menu-btn" class="md:hidden flex items-center text-black">
+            <iconify-icon icon="solar:hamburger-menu-linear" width="28" height="28"></iconify-icon>
+        </button>
 
-            <div class="relative group">
-                <div class="absolute inset-0 bg-white/60 backdrop-blur-md rounded-sm -mx-4 md:-mx-8 py-10 transition-all duration-500 group-hover:bg-white/80"></div>
-                <div class="relative grid grid-cols-1 md:grid-cols-12 gap-8 px-4 md:px-8 py-10">
-                    <div class="md:col-span-2 relative flex justify-center md:justify-start">
-                        <span class="md:text-6xl text-5xl font-serif text-black/20 group-hover:text-black transition-colors duration-500 relative z-10">01</span>
-                    </div>
-                    <div class="md:col-span-10 pt-3">
-                        <span class="block text-[10px] uppercase tracking-[0.25em] font-serif mb-4 text-black/60">Diagnose</span>
-                        <h4 class="text-xl font-semibold tracking-wide font-serif-jp mb-4 text-[#111111]">混沌の構造化</h4>
-                        <p class="jp-body text-sm max-w-2xl text-[#333333] leading-relaxed">現状の摩擦と停滞をファクトで紐解く。主観的な「意見」ではなく、客観的な「構造」として課題を定義し直します。</p>
-                    </div>
-                </div>
+        <div id="mobile-menu-content" class="hidden absolute top-full left-0 w-full bg-white border-b border-black/5 flex-col p-6 gap-4 shadow-xl">
+            <a href="#process" class="text-sm uppercase tracking-widest py-2">Process</a>
+            <a href="#selected-works" class="text-sm uppercase tracking-widest py-2">Works</a>
+            <a href="#contact" class="text-sm uppercase tracking-widest py-2">Contact</a>
+        </div>
+    </nav>
+
+    <header class="min-h-screen flex items-center bg-[#0a0a0a] relative overflow-hidden px-6 md:px-24">
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+        <div class="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 text-white fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-serif-jp leading-tight mb-8">混沌を構造化し、<br>組織のOSを再設計する。</h1>
+                <p class="jp-body text-gray-400 max-w-lg mb-12">Design for Complexity. 複雑な変数を紐解き、自走する組織を実装する。</p>
+                <a href="#selected-works" class="border-b border-white/30 pb-1 text-[11px] uppercase tracking-widest hover:border-white transition-all">View Case Studies ⟶</a>
             </div>
-
-            <div class="relative group">
-                <div class="absolute inset-0 bg-white/60 backdrop-blur-md rounded-sm -mx-4 md:-mx-8 py-10 transition-all duration-500 group-hover:bg-white/80"></div>
-                <div class="relative grid grid-cols-1 md:grid-cols-12 gap-8 px-4 md:px-8 py-10">
-                    <div class="md:col-span-2 relative flex justify-center md:justify-start">
-                        <span class="md:text-6xl text-5xl font-serif text-black/20 group-hover:text-black transition-colors duration-500 relative z-10">02</span>
-                    </div>
-                    <div class="md:col-span-10 pt-3">
-                        <span class="block text-[10px] uppercase tracking-[0.25em] font-serif mb-4 text-black/60">Architect</span>
-                        <h4 class="text-xl font-semibold tracking-wide font-serif-jp mb-4 text-[#111111]">事業×組織の再設計</h4>
-                        <p class="jp-body text-sm max-w-2xl text-[#333333] leading-relaxed">戦略と実装の間に、共通の判断指標を敷く。分断されたサイロを繋ぐ、新しい組織のプロトコルを策定します。</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative group">
-                <div class="absolute inset-0 bg-white/60 backdrop-blur-md rounded-sm -mx-4 md:-mx-8 py-10 transition-all duration-500 group-hover:bg-white/80"></div>
-                <div class="relative grid grid-cols-1 md:grid-cols-12 gap-8 px-4 md:px-8 py-10">
-                    <div class="md:col-span-2 relative flex justify-center md:justify-start">
-                        <span class="md:text-6xl text-5xl font-serif text-black/20 group-hover:text-black transition-colors duration-500 relative z-10">03</span>
-                    </div>
-                    <div class="md:col-span-10 pt-3">
-                        <span class="block text-[10px] uppercase tracking-[0.25em] font-serif mb-4 text-black/60">Deploy</span>
-                        <h4 class="text-xl font-semibold tracking-wide font-serif-jp mb-4 text-[#111111]">実装と定着</h4>
-                        <p class="jp-body leading-relaxed text-sm text-[#333333] max-w-2xl">現場のプロセスに血を通わせ、運用を同期させる。絵に描いた餅で終わらせず、具体的な業務フローレベルまで落とし込みます。</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative group">
-                <div class="absolute inset-0 bg-white/70 backdrop-blur-md rounded-sm -mx-4 md:-mx-8 py-10 transition-all duration-500 group-hover:bg-stone-50/90 border-l-2 border-stone-400"></div>
-                <div class="relative grid grid-cols-1 md:grid-cols-12 gap-8 px-4 md:px-8 py-10">
-                    <div class="md:col-span-2 relative flex justify-center md:justify-start">
-                        <span class="md:text-6xl text-5xl font-serif text-black/20 group-hover:text-black transition-colors duration-500 relative z-10">04</span>
-                    </div>
-                    <div class="md:col-span-10 pt-3">
-                        <div class="flex items-center gap-2 mb-4">
-                            <span class="block text-[10px] uppercase tracking-[0.25em] font-serif text-black/60">Alignment</span>
-                            <span class="px-2 py-0.5 bg-stone-800 text-white text-[8px] tracking-[0.1em] rounded-full uppercase opacity-80">Plus +</span>
-                        </div>
-                        <h4 class="text-xl font-semibold tracking-wide font-serif-jp mb-4 text-[#111111]">組織感情の最適化</h4>
-                        <p class="jp-body leading-relaxed text-sm text-[#333333] max-w-2xl">変革を拒む「目詰まり」は、しばしば感情の構造に潜みます。パートナーのエグゼクティブコーチと連携し、システムコーチングを統合。論理を動かすための「心理的土壌」を整え、変革を完遂させます。</p>
-                    </div>
-                </div>
+            <div class="lg:col-span-6 relative h-[50vh] lg:h-[80vh] flex items-center justify-center">
+                <span class="text-[12vh] lg:text-[18vh] font-serif text-outline lg:rotate-[-90deg] animate-float-text opacity-30 select-none">YOKO MELICHAR</span>
             </div>
         </div>
-    </div>
-</section>
+    </header>
 
-<section class="bg-slate-50 w-full pt-40 pb-40">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <p class="leading-[2.2] md:text-2xl text-lg font-light text-[#444444] font-serif">
-            「進まない」「決まらない」「バラバラ」といった<br class="hidden md:block">
-            エンタープライズ特有の澱みを、戦略的アプローチで解消し、<br class="hidden md:block">
-            プロダクトと組織が自走し始める状態を創り出します。
-        </p>
-    </div>
-</section>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 背景アニメーションの起動
+            if(window.particlesJS) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 50 },
+                        color: { value: "#ffffff" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.3 },
+                        size: { value: 2 },
+                        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.2, width: 1 },
+                        move: { enable: true, speed: 1.5 }
+                    },
+                    interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
+                });
+            }
 
-<section class="lg:py-40 md:px-12 lg:px-24 bg-white w-full pt-32 pr-6 pb-32 pl-6" id="selected-works">
-    <div class="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b-[0.5px] border-[#E5E5E5] pb-8">
-        <h2 class="text-4xl lg:text
+            // 【重要】ハンバーガーメニューの動き
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu-content');
+            
+            if (btn && menu) {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');
+                });
+                // メニュー以外を押したら閉じる
+                document.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    menu.classList.remove('flex');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
