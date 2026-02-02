@@ -743,5 +743,21 @@ writing-mode: vertical-rl;
     </div>
 </footer>
 
+<script>
+    // モバイルメニューの開閉
+    const menuBtn = document.querySelector('button.md\\:hidden');
+    const menuContent = document.querySelector('.md\\:flex.gap-x-8');
 
+    menuBtn.addEventListener('click', () => {
+        menuContent.classList.toggle('hidden');
+        menuContent.classList.toggle('flex');
+        menuContent.classList.toggle('flex-col');
+        menuContent.classList.toggle('absolute');
+        menuContent.classList.toggle('top-20');
+        menuContent.classList.toggle('left-0');
+        menuContent.classList.toggle('w-full');
+        menuContent.classList.toggle('bg-white');
+        menuContent.classList.toggle('p-6');
+    });
+</script>
 </body></html>
