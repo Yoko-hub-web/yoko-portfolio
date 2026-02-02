@@ -12,68 +12,226 @@
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Noto Sans JP', sans-serif; }
         .font-serif-jp { font-family: 'Noto Serif JP', serif; }
-        .jp-body { font-family: 'Noto Sans JP', sans-serif; font-weight: 300; line-height: 2.0; letter-spacing: 0.05em; }
-        .text-outline { -webkit-text-stroke: 1px rgba(231, 229, 228, 0.4); color: transparent; }
+        .jp-body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 300;
+            line-height: 2.0;
+            letter-spacing: 0.05em;
+        }
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(231, 229, 228, 0.4);
+            color: transparent;
+        }
         .image-zoom-container { overflow: hidden; }
         .image-zoom-img { transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease; }
         .group:hover .image-zoom-img { transform: scale(1.05); }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         .fade-in-up { animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-        @keyframes floatText { 0%, 100% { transform: rotate(-90deg) translateX(0); } 50% { transform: rotate(-90deg) translateX(-15px); } }
+        
+        @keyframes floatText {
+            0%, 100% { transform: rotate(-90deg) translateX(0); }
+            50% { transform: rotate(-90deg) translateX(-15px); }
+        }
         .animate-float-text { animation: floatText 14s ease-in-out infinite; }
-        @media (max-width: 1024px) { .animate-float-text { animation: none; transform: none !important; writing-mode: vertical-rl; } }
+        
+        @media (max-width: 1024px) {
+            .animate-float-text {
+                animation: none;
+                transform: none !important;
+                writing-mode: vertical-rl;
+            }
+        }
+        #mobile-menu-content.active { display: flex !important; }
     </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP&display=swap">
 </head>
 
 <body class="bg-white">
-    <nav class="fixed top-0 left-0 w-full z-[100] bg-white/95 backdrop-blur-sm border-b border-black/5 px-6 py-4 md:px-12 flex justify-between items-center">
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-white/95 backdrop-blur-sm border-b border-black/5 px-6 py-4 md:px-12 flex justify-between items-center transition-all duration-300">
         <div class="flex items-center gap-4">
             <a href="#" class="flex flex-col md:flex-row md:items-baseline md:gap-3 group">
-                <span class="text-xl tracking-tight font-serif text-black">Yoko Melichar <span class="text-sm font-sans-jp text-stone-500">| メリカー庸子</span></span>
-                <span class="text-[9px] uppercase font-light tracking-[0.15em] text-stone-400">Service Design Consultant</span>
+                <span class="text-xl tracking-tight font-serif leading-none text-black group-hover:opacity-60 transition-opacity">
+                    Yoko Melichar <span class="text-sm font-sans-jp ml-1 font-light text-stone-500">| メリカー庸子</span>
+                </span>
+                <span class="text-[9px] uppercase font-light tracking-[0.15em] font-sans text-stone-400 mt-1 md:mt-0">
+                    Service Design Consultant
+                </span>
             </a>
         </div>
-        <div class="hidden md:flex gap-8 items-center">
-            <a href="#process" class="text-[10px] uppercase tracking-widest text-black/60 hover:text-black">Process</a>
-            <a href="#selected-works" class="text-[10px] uppercase tracking-widest text-black/60 hover:text-black">Works</a>
-            <a href="#contact" class="text-[10px] uppercase border border-black/20 rounded-full px-4 py-2 hover:bg-black hover:text-white transition-all">Contact</a>
+        
+        <div class="hidden md:flex gap-x-8 items-center">
+            <a href="#process" class="text-[10px] uppercase tracking-[0.2em] font-serif text-black/60 hover:text-black transition-colors">Process</a>
+            <a href="#selected-works" class="text-[10px] uppercase tracking-[0.2em] font-serif text-black/60 hover:text-black transition-colors">Works</a>
+            <a href="#Philosophy" class="text-[10px] uppercase hover:text-black transition-colors text-black/60 tracking-[0.2em] font-serif">Philosophy</a>
+            <a href="#contact" class="text-[10px] uppercase border border-black/20 rounded-full px-4 py-2 hover:bg-black hover:text-white transition-all font-serif">Contact</a>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden text-black"><iconify-icon icon="solar:hamburger-menu-linear" width="24"></iconify-icon></button>
+
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center text-black">
+            <iconify-icon icon="solar:hamburger-menu-linear" width="28" height="28"></iconify-icon>
+        </button>
+
+        <div id="mobile-menu-content" class="hidden absolute top-full left-0 w-full bg-white border-b border-black/5 flex-col p-8 gap-6 shadow-xl z-[101]">
+            <a href="#process" class="mobile-link text-sm uppercase tracking-widest font-serif">Process</a>
+            <a href="#selected-works" class="mobile-link text-sm uppercase tracking-widest font-serif">Works</a>
+            <a href="#Philosophy" class="mobile-link text-sm uppercase tracking-widest font-serif">Philosophy</a>
+            <a href="#contact" class="mobile-link text-sm uppercase tracking-widest font-serif">Contact</a>
+        </div>
     </nav>
 
-    <header class="min-h-screen flex items-center bg-[#0a0a0a] relative overflow-hidden px-6 md:px-24">
-        <div id="particles-js" class="absolute inset-0 z-0"></div>
-        <div class="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-6 text-white fade-in-up">
-                <h1 class="text-4xl md:text-6xl font-serif-jp leading-tight mb-8">混沌を構造化し、<br>組織のOSを再設計する。</h1>
-                <p class="jp-body text-gray-400 max-w-lg mb-12">Design for Complexity. 複雑な変数を紐解き、自走する組織のアーキテクチャを実装する。</p>
-                <a href="#selected-works" class="group inline-flex items-center gap-4 text-[11px] uppercase tracking-widest text-white">
-                    <span class="border-b border-white/30 pb-1 group-hover:border-white">View Case Studies</span>
-                    <span class="text-xl group-hover:translate-x-2 transition-transform">⟶</span>
+    <header class="min-h-screen flex md:px-12 lg:px-24 overflow-hidden bg-[#0a0a0a] w-full pt-32 pr-6 pb-24 pl-6 relative items-center">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] blur-[120px] rounded-full bg-gray-800/20"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] blur-[100px] rounded-full bg-gray-700/10"></div>
+        </div>
+
+        <div class="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center h-full">
+            <div class="lg:col-span-6 flex flex-col justify-center fade-in-up order-2 lg:order-1 relative z-20 text-white">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl leading-[1.4] font-light tracking-wide font-serif-jp mb-12 text-white/90">
+                    混沌を構造化し、<br>組織のOSを<br class="hidden lg:block">再設計する。
+                </h1>
+                <div class="w-full h-[0.5px] mb-12 max-w-sm bg-white/20"></div>
+                <p class="jp-body text-sm text-gray-300 text-justify opacity-80 max-w-lg mb-12">Design for Complexity.<br> 複雑なプロジェクトの変数を紐解き、自走する組織のアーキテクチャを実装する。 混沌を構造へ。変革を日常へ。</p>
+                <a href="#selected-works" class="group relative inline-flex items-center gap-6 px-0 py-2 transition-colors duration-300 w-max text-white hover:text-gray-300">
+                    <span class="relative z-10 text-[11px] tracking-[0.2em] uppercase font-serif border-b pb-1 group-hover:border-white transition-colors duration-300 border-white/30">View Case Studies</span>
+                    <span class="font-light text-xl relative top-[-1px] group-hover:translate-x-2 transition-transform duration-300">⟶</span>
                 </a>
             </div>
-            <div class="lg:col-span-6 relative h-[50vh] lg:h-[80vh] flex items-center justify-center">
-                <span class="text-[12vh] lg:text-[18vh] font-serif text-outline lg:rotate-[-90deg] animate-float-text opacity-40 select-none">YOKO MELICHAR</span>
+
+            <div class="lg:col-span-6 order-1 lg:order-2 fade-in-up delay-200 lg:h-[80vh] flex h-[50vh] relative items-center justify-center">
+                <div id="particles-js" class="absolute inset-0 -z-10"></div>
+                <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+                    <span class="text-[13vh] lg:text-[18vh] font-serif font-light text-outline whitespace-nowrap lg:rotate-[-90deg] animate-float-text opacity-40 select-none tracking-tight">
+                        YOKO MELICHAR
+                    </span>
+                </div>
+                <div class="z-10 flex flex-col gap-6 relative items-center">
+                    <span class="text-[10px] uppercase font-medium text-white tracking-[0.3em] font-sans bg-[#0a0a0a]/50 border-white/10 border pt-2 pr-4 pb-2 pl-4 backdrop-blur-sm">
+                        Design Governance
+                    </span>
+                </div>
             </div>
         </div>
     </header>
 
+    <section class="lg:py-40 bg-center bg-cover pt-32 pb-32 relative" style="background-image: url('https://images.unsplash.com/photo-1509114397022-ed747cca3f65?q=80&w=2670&auto=format&fit=crop')" id="process">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-white">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 border-b-[0.5px] pb-8 border-white/20">
+                <h2 class="font-serif text-4xl lg:text-5xl tracking-tight">The Blueprint</h2>
+                <p class="text-[10px] tracking-[0.2em] uppercase mt-6 md:mt-0 font-serif opacity-60">Transformation Roadmap</p>
+            </div>
+            <div class="space-y-12">
+                <div class="bg-white/60 backdrop-blur-md p-10 rounded-sm grid grid-cols-1 md:grid-cols-12 gap-8 text-black transition-all hover:bg-white/80">
+                    <div class="md:col-span-2 text-5xl font-serif text-black/20">01</div>
+                    <div class="md:col-span-10"><h4 class="text-xl font-serif-jp mb-4">混沌の構造化</h4><p class="jp-body text-sm">現状の摩擦と停滞をファクトで紐解く。客観的な「構造」として課題を定義し直します。</p></div>
+                </div>
+                <div class="bg-white/60 backdrop-blur-md p-10 rounded-sm grid grid-cols-1 md:grid-cols-12 gap-8 text-black transition-all hover:bg-white/80">
+                    <div class="md:col-span-2 text-5xl font-serif text-black/20">02</div>
+                    <div class="md:col-span-10"><h4 class="text-xl font-serif-jp mb-4">事業×組織の再設計</h4><p class="jp-body text-sm">戦略と実装の間に、共通の判断指標を敷く。新しい組織のプロトコルを策定します。</p></div>
+                </div>
+                <div class="bg-white/60 backdrop-blur-md p-10 rounded-sm grid grid-cols-1 md:grid-cols-12 gap-8 text-black transition-all hover:bg-white/80">
+                    <div class="md:col-span-2 text-5xl font-serif text-black/20">03</div>
+                    <div class="md:col-span-10"><h4 class="text-xl font-serif-jp mb-4">実装と定着</h4><p class="jp-body text-sm">現場のプロセスに血を通わせ、運用を同期。具体的な業務フローレベルまで落とし込みます。</p></div>
+                </div>
+                <div class="bg-white/70 backdrop-blur-md p-10 rounded-sm border-l-4 border-stone-800 grid grid-cols-1 md:grid-cols-12 gap-8 text-black">
+                    <div class="md:col-span-2 text-5xl font-serif text-black/20">04</div>
+                    <div class="md:col-span-10"><h4 class="text-xl font-serif-jp mb-4">組織感情の最適化</h4><p class="jp-body text-sm">エグゼクティブコーチと連携し、システムコーチングを統合。論理を動かすための「心理的土壌」を整えます。</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lg:py-40 px-6 md:px-12 lg:px-24 bg-white py-32" id="selected-works">
+        <div class="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b-[0.5px] border-[#E5E5E5] pb-8">
+            <h2 class="text-4xl lg:text-5xl font-serif tracking-tight text-[#111111]">Selected Works</h2>
+            <span class="text-[10px] font-serif tracking-[0.2em] uppercase text-[#999999]">Case Studies</span>
+        </div>
+
+        <article class="group grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center mb-40">
+            <div class="lg:col-span-7 aspect-[16/10] bg-[#F5F5F5] overflow-hidden relative">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/19ed0320-18b3-4e99-af90-5fa89220b21f_1600w.jpg" class="image-zoom-img w-full h-full object-cover grayscale">
+                <div class="absolute top-8 left-8 text-5xl font-serif italic text-black/20">01</div>
+            </div>
+            <div class="lg:col-span-5">
+                <span class="text-[10px] font-serif tracking-[0.2em] text-[#888888] uppercase mb-4 block">Governance Strategy</span>
+                <h3 class="text-4xl font-serif mb-6">ASICS</h3>
+                <h4 class="text-xl font-serif-jp mb-6">グローバルブランド体験の一貫性を実現</h4>
+                <p class="jp-body text-sm mb-10 border-l pl-6 border-stone-200">分断されたリージョン間のハブ機能を構築。本部を支援者として再定義するコミュニケーション構造を設計。</p>
+                <a href="#" class="text-[10px] uppercase tracking-widest border-b border-black pb-1">Read Full Story ⟶</a>
+            </div>
+        </article>
+
+        <article class="group grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+            <div class="lg:col-span-5 order-2 lg:order-1">
+                <span class="text-[10px] font-serif tracking-[0.2em] text-[#888888] uppercase mb-4 block">Fintech Architecture</span>
+                <h3 class="text-4xl font-serif mb-6">SMBC</h3>
+                <h4 class="text-xl font-serif-jp mb-6">グローバル開発を加速させる基盤整備</h4>
+                <p class="jp-body text-sm mb-10 border-l pl-6 border-stone-200">法令・プロダクト・国際基準の三権分立を解消。カーボンアカウンティングプラットフォームの基盤を整備。</p>
+                <a href="#" class="text-[10px] uppercase tracking-widest border-b border-black pb-1">Read Full Story ⟶</a>
+            </div>
+            <div class="lg:col-span-7 order-1 lg:order-2 aspect-[16/10] bg-[#F5F5F5] overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop" class="image-zoom-img w-full h-full object-cover grayscale">
+                <div class="absolute top-8 right-8 text-5xl font-serif italic text-black/20">02</div>
+            </div>
+        </article>
+    </section>
+
+    <section id="contact" class="py-32 bg-stone-50 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl font-serif mb-12">Get in Touch</h2>
+            <p class="jp-body mb-12 text-stone-600">組織の変革、サービスデザインに関するご相談はこちらまで。</p>
+            <a href="mailto:hello@yokomelichar.com" class="text-2xl font-serif border-b border-black pb-2 hover:opacity-50 transition-opacity">hello@yokomelichar.com</a>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-black/5 text-center text-[10px] uppercase tracking-widest text-stone-400">
+        © 2026 Yoko Melichar. All rights reserved.
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: "#ffffff" },
-                    shape: { type: "circle" },
-                    opacity: { value: 0.5 },
-                    size: { value: 3, random: true },
-                    line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-                    move: { enable: true, speed: 2 }
-                },
-                interactivity: { events: { onhover: { enable: true, mode: "repulse" } } },
-                retina_detect: true
-            });
+            // Particles Init
+            if (window.particlesJS) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 60, density: { enable: true, value_area: 800 } },
+                        color: { value: "#ffffff" },
+                        opacity: { value: 0.3 },
+                        size: { value: 2, random: true },
+                        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.2, width: 1 },
+                        move: { enable: true, speed: 1.5 }
+                    },
+                    interactivity: { events: { onhover: { enable: true, mode: "repulse" } } },
+                    retina_detect: true
+                });
+            }
+
+            // Mobile Menu
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const menuContent = document.getElementById('mobile-menu-content');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (menuBtn && menuContent) {
+                menuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    menuContent.classList.toggle('hidden');
+                    menuContent.classList.toggle('active');
+                });
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuContent.classList.add('hidden');
+                        menuContent.classList.remove('active');
+                    });
+                });
+                document.addEventListener('click', () => {
+                    menuContent.classList.add('hidden');
+                    menuContent.classList.remove('active');
+                });
+            }
         });
     </script>
 </body>
