@@ -1,5 +1,6 @@
 <html lang="ja" class="scroll-smooth"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>Yoko Melichar | Service Design &amp; Strategy</title>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -499,7 +500,7 @@ writing-mode: vertical-rl;
         </div>
     </section>
 
-&lt;<section id="Philosophy" class="relative py-32 lg:py-48 overflow-hidden">
+<section id="Philosophy" class="relative py-32 lg:py-48 overflow-hidden">
     <div class="absolute inset-0 z-0">
         <div class="bg-center bg-black/50 bg-[url(https://images.unsplash.com/photo-1644910382488-14b70e952e7d?w=3840&amp;q=80)] bg-cover z-10 absolute top-0 right-0 bottom-0 left-0"></div>
         <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover">
@@ -748,7 +749,7 @@ writing-mode: vertical-rl;
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <a href="/cdn-cgi/l/email-protection#047d6b6f6b2a6f6573656371676c6d446369656d682a676b69" class="group inline-flex items-center gap-4 hover:text-stone-300 hover:border-stone-300 transition-all text-2xl font-serif w-fit border-white/20 border-b pb-1">
+                    <a href="mailto:yoko.kawaguchi@gmail.com" class="group inline-flex items-center gap-4 hover:text-stone-300 hover:border-stone-300 transition-all text-2xl font-serif w-fit border-white/20 border-b pb-1">
                         Say Hello <span class="group-hover:translate-x-2 transition-transform duration-300">⟶</span>
                     </a>
                 </div>
@@ -828,4 +829,12 @@ mobileMenuLinks.forEach(link => {
 
 // Close menu when clicking outside
 mobileMenu.addEventListener('click', (e) => {
-    if (e.tar
+    if (e.target === mobileMenu) {
+        mobileMenu.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+    }
+});
+</script>
+
+
+</body></html>
